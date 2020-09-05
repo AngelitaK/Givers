@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar  color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title><b>Disability</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card button  *ngFor="let category of categories" [routerLink]="['/info', 'disability', category.id]">
+      <ion-card-content>
+        <img style="width: 25rem;  height: 16.5rem; display: block; margin: auto;" src="{{category.pic}}">
+      </ion-card-content>
+      <ion-card-header>
+        <ion-card-title style="font-weight: bold; text-align: center;">{{category.campaignName}}</ion-card-title>
+        <br>
+        <ion-card-title style="font-size: 1rem; font-weight: bold; text-align: center; color: grey;">{{category.charityName}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+</ion-content>
