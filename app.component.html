@@ -1,0 +1,33 @@
+<ion-app>
+
+    <ion-menu side="start" contentId="main" menuId="main" auto-hide="true">
+      
+      <ion-header>
+        <ion-toolbar id="menuToolbar" color="primary">
+          <ion-img style="width: 10rem; height: 10rem; " src="assets/giverslogo.png"></ion-img>
+          <br>
+          <ion-title *ngIf="users"><b>Hi, {{users.fullname}}!</b></ion-title>
+          <br>
+        </ion-toolbar>
+      </ion-header>
+  
+      <ion-content>
+        <ion-list>
+          <ion-item style="font-size: 20px;" lines="none" routerLink="home" (click)="close()" routerLinkActive="bold">Home</ion-item>
+
+          <ion-item style="font-size: 20px;" lines="none" routerLink="news" (click)="close()" routerLinkActive="bold">Latest News</ion-item>
+  
+          <ion-item style="font-size: 20px;" lines="none" [routerLink] = "['/donorwall']" (click)="close()" routerLinkActive="bold">Donor Wall</ion-item>
+  
+          <ion-item style="font-size: 20px;" lines="none" routerLink="about" (click)="close()" routerLinkActive="bold">About</ion-item>
+
+          <ion-item style="font-size: 20px;" lines="none" routerLink="account" (click)="close()" routerLinkActive="bold">Account</ion-item>
+        </ion-list>
+      </ion-content>
+
+    </ion-menu>
+  
+    
+    <ion-router-outlet id="main"></ion-router-outlet>
+
+</ion-app>
