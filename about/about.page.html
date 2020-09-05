@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="font-weight: bold;">About</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+    <ion-img src="assets/giverslogo.png"></ion-img>
+  
+    <div class="ion-text-center" style="padding-left: 1rem; padding-right: 1rem;">
+      <h3><b><ion-text>
+        Our Purpose
+      </ion-text></b></h3>
+      <ion-text>The purpose of this app is to encourage giving back to the society and donating through the phone without any hassle</ion-text>
+
+      <h3><b><ion-text>
+        Meet Our Team
+      </ion-text></b></h3>
+      <ion-text>We are students from Temasek Polytechnic who wants to help non-profit organizations in Singapore through monetary donations.</ion-text>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+
+        <ion-col>
+          <div style="text-align: center">
+            <ion-img style="width: 120px; height: 120px" src="assets/ju2.png"></ion-img>
+            <ion-text><b>Julia,</b></ion-text>
+            <br>
+            <ion-text>Emotional Support</ion-text>
+          </div>
+        </ion-col>
+        
+        <ion-col>
+          <div style="text-align: center">
+            <ion-img style="width: 120px; height: 120px" src="assets/angelita.png"></ion-img>
+            <ion-text><b>Angelita,</b></ion-text>
+            <br>
+            <ion-text>Lead Developer</ion-text>
+          </div>
+        </ion-col>
+        
+        <ion-col>
+          <div style="text-align: center">
+            <ion-img style="width: 120px; height: 120px" src="assets/kira.png"></ion-img>
+            <ion-text><b>Kira,</b></ion-text>
+            <br>
+            <ion-text >Tech Support</ion-text>
+          </div>
+        </ion-col>
+        
+      </ion-row>
+    </ion-grid>
+    
+    <ion-text style="text-align: center;"><h3><b>Locate Us</b></h3></ion-text>
+    <div #map id="map" style="height: 400px; width: 95%; display: block; margin: auto;"></div>
+    <br>
+
+  </ion-content>
