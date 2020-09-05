@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" [routerLink]="['/donormessage']">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title><b>Message Details</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+  <form [formGroup]="myForm" (submit)="update()" novalidate style="padding-left: 2rem; padding-right: 2rem;" *ngIf="message">
+    <br>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title style="font-weight: bold; font-size: 1.25rem;">Full Name:</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input formControlName="fullname" type="text" value="{{message.fullname}}"
+          [class.invalid]="!myForm.controls.fullname.valid && myForm.controls.fullname.dirty" style=" font-size: 1.25rem;">
+        </ion-input>
+        <ion-item class="error-message" color="danger"
+          *ngIf="!myForm.controls.fullname.valid  && myForm.controls.fullname.dirty">
+          <p>Full name cannot be empty</p>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title style="font-weight: bold; font-size: 1.25rem;">Message:</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input formControlName="message" type="text" required="true" value="{{message.message}}"
+          [class.invalid]="!myForm.controls.message.valid && myForm.controls.message.dirty"  style=" font-size: 1.25rem;">
+        </ion-input>
+        <ion-item class="error-message" color="danger"
+          *ngIf="!myForm.controls.message.valid  && myForm.controls.message.dirty">
+          <p>Message cannot be empty.</p>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <br>
+    <div style="text-align: center; margin: auto" *ngIf="check == true">
+      <ion-button fill="solid" shape="round" style="font-weight: bold;" (click)="update()">Update</ion-button>
+      <ion-button fill="solid" shape="round" style="font-weight: bold;" (click)="delete()">Delete</ion-button>
+    </div>
+
+  </form>
+
+</ion-content>
