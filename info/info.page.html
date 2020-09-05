@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title><b>Information</b></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="category">
+
+    <img style="display: block; margin: auto; width: fit-content; height: 16rem" src="{{category.pic}}">
+    <div style="padding-left:1rem; padding-right: 1rem;" >
+    <ion-text><h3 style="text-align: center; font-weight: bold;">{{category.campaignName}}</h3></ion-text>
+    <ion-row>
+      <ion-col col-2>
+        <div><img style="width: 120px; height:120px" src="{{category.logo}}"></div>
+      </ion-col>
+      <ion-col>
+        <ion-text><h6 style="font-weight: bold;">By: {{category.charityName}}</h6></ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-text><h4><b>About The Campaign</b></h4></ion-text>
+    <ion-text>{{category.aboutCampaign}}</ion-text>
+    
+    <ion-text><h4><b>About The Charity</b></h4></ion-text>
+    <ion-text>{{category.aboutCharity}}</ion-text>
+
+    <ion-text><h4><b>Contact Us</b></h4></ion-text>
+    <ion-text><b>Website: </b>{{category.web}}</ion-text>
+    <br>
+    <ion-text><b>Email: </b>{{category.email}}</ion-text>
+    <br>
+    <ion-text><b>Contact: </b>{{category.contact}}</ion-text>
+    <br>
+
+  </div>
+
+  <div style="display: table; margin: auto; padding: 1rem;">
+    <ion-button shape="round" style="font-weight: bold;" [routerLink]="['/payment', cId, category.id]"><b>Donate Now!</b></ion-button>
+  </div>
+
+</ion-content>
