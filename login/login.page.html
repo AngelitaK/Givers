@@ -1,0 +1,34 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+  <ion-img src="assets/giverslogo.png"></ion-img>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Email:</ion-label>
+      <ion-input type="text" required="true" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Password:</ion-label>
+      <ion-input [type]="isTextFieldType ? 'text' : 'password'" required="true" [(ngModel)]="password"></ion-input>
+      <ion-icon button item-right (click)="togglePasswordFieldType()" [name]="isTextFieldType ? 'eye-off' : 'eye'"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <p [routerLink]="['/forgot']" style="text-align: center;"><u>Forgot Password?</u></p>
+
+  <div style="text-align: center; margin: auto;">
+    <ion-button fill="solid" shape="round" (click)="login()" style="text-align: center; font-weight: bold; font-size: 1.1rem;">Login</ion-button>
+  </div>
+
+  <p style="text-align: center;color: black; font-weight: bold; font-size: 1.2rem;"><b>Or Login Using:</b></p>
+
+  <div style="text-align: center; margin: auto;">
+    <ion-button (click)="googleSignIn()" color="danger" style="font-weight: bold;"><ion-icon name="logo-google"></ion-icon>OOGLE</ion-button>
+  </div>
+
+  <p [routerLink]="['/signup']" style="text-align: center;"><u>Sign Up Instead!</u></p>
+
+</ion-content>
