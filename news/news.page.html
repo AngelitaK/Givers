@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title><b>Latest News</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-card *ngFor="let article of articles">
+    <ion-img src="{{article.urlToImage}}"></ion-img>
+
+    <ion-card-header>
+      <ion-card-title><b>{{article.title}}</b></ion-card-title>
+      <br>
+      <ion-card-subtitle>{{article.author}}</ion-card-subtitle>
+      <ion-card-subtitle><b>Published At: </b>{{article.publishedAt}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        {{article.description}}
+      </p>
+      <br>
+      <p>
+        {{article.content}}
+      </p>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
