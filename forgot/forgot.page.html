@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-img src="assets/giverslogo.png"></ion-img>
+
+  <ion-text style="text-align: center;">
+    <h2><b>Reset Password</b></h2>
+  </ion-text>
+
+  <ion-text>
+    <h4 style="text-align: center; padding-left: 2rem; padding-right: 2rem;">Please enter your email below. A message
+      will be sent to your email to reset your password</h4>
+  </ion-text>
+  <br>
+
+  <form [formGroup]="myForm" (ngSubmit)="resetPassword()" style="text-align: center; margin: auto; padding-left: 2rem; padding-right: 2rem;">
+    <ion-item>
+      <ion-input type="text" required="true" style="font-size: 1.1rem;" formControlName="email" placeholder="Your email here">
+      </ion-input>
+    </ion-item>
+
+    <br>
+    <div>
+      <ion-button fill="solid" shape="round" (click)="resetPassword()" style="font-weight: bold; font-size: 1.1rem;">Reset Password</ion-button>
+    </div>
+  </form>
+
+</ion-content>
