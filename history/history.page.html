@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title style="font-weight: bold;">Who's Giving</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-icon (click)="logout()" name="log-out-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list style="padding: 1rem;">
+
+    <ion-card *ngFor="let donation of donations">
+      <ion-card-content>
+        <ion-label style="color: black; font-size: 1rem;"><b>{{ donation.fullname | uppercase}} donated ${{ donation.Amount }}</b></ion-label>
+        <br>
+        <br>
+        <ion-text style="color: black; font-size: 1rem;"><b>Charity: </b>{{ donation.charityName}}</ion-text>
+        <br>
+        <ion-text style="color: black; font-size: 1rem;"><b>Campaign: </b>{{ donation.campaignName}}</ion-text>
+        <br>
+        <br>
+        <ion-text style=" font-size: 1rem;"><i>{{ donation.Message }}</i></ion-text>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+
+</ion-content>
