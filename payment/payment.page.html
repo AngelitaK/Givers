@@ -1,0 +1,150 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title><b>Payment</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="padding-left: 1rem; padding-right: 1rem;">
+
+    <ion-card>
+      <ion-card-content>
+        <ion-label style="display: block;  font-size: 1.1rem; color: black; text-align: center;">Thank you for your
+          generous donation! Kindly fill out the payment form below :)
+        </ion-label>
+        <br>
+        <ion-label style="text-align: center; display: block; font-size: 1rem; color: red;">*Your full name and amount
+          donated will be shown on the Who's Giving Page*
+        </ion-label>
+      </ion-card-content>
+    </ion-card>
+
+    <form [formGroup]="myForm" (submit)="add()" novalidate>
+
+      <ion-card style="padding: 0.5rem; display: block; text-align: center; background-color:#d7d9db;">
+
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Full Name: <ion-text
+              color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="text" required="true" style=" font-size: 1.1rem;" formControlName="fullname"
+            value="{{users.fullname}}">
+          </ion-input>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Address: <ion-text
+              color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="text" required="true" style=" font-size: 1.1rem;" formControlName="Address"
+            placeholder="Your Address"></ion-input>
+          <ion-input type="text" required="true" style=" font-size: 1.1rem;" formControlName="Postal"
+            placeholder="Your Postal Code"></ion-input>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold; font-size: 1rem;">Donating To: <ion-text
+              color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="text" disabled="true" style=" font-size: 1.1rem;" formControlName="campaignName" value="{{category.campaignName}}"
+          ></ion-input>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold; font-size: 1rem;">Charity: <ion-text
+              color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="text" disabled="true" style=" font-size: 1.1rem;" formControlName="charityName" value="{{category.charityName}}"
+          ></ion-input>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Amount: <ion-text
+              color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="number" required="true" style=" font-size: 1.1rem;" formControlName="Amount"
+            placeholder="Your amount to donate"></ion-input>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <ion-label>Payment Method: <ion-text color="danger">*</ion-text></ion-label>
+          <ion-select required="true" formControlName="PaymentMethod" style=" font-size: 1.1rem;">
+            <ion-select-option *ngFor="let PaymentMethod of paymentMethods" [ngValue]="PaymentMethod">{{PaymentMethod}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Card Name: <ion-text
+              color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="text" required="true" style=" font-size: 1.1rem;" formControlName="CardName"
+            placeholder="Card Name"></ion-input>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Card Number: <ion-text
+              color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="number" required="true" style=" font-size: 1.1rem;" formControlName="CardNo"
+            placeholder="Card Number"></ion-input>
+        </ion-item>
+        <br>
+
+        <ion-row>
+          <ion-col offset-4>
+            <div>
+              <ion-item>
+                <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">CVC: <ion-text
+                    color="danger">*</ion-text>
+                </ion-label>
+                <ion-input type="number" required="true" style=" font-size: 1.1rem;" formControlName="Cvc"
+                  placeholder="CVC"></ion-input>
+              </ion-item>
+              <br>
+            </div>
+          </ion-col>
+
+          <ion-col>
+            <div>
+              <ion-item>
+                <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Expiry: <ion-text
+                    color="danger">*</ion-text>
+                </ion-label>
+                <ion-datetime displayFormat="MMM-YYYY" pickerFormat="MMM-YYYY" [min]="minDate" [max]="maxData"
+                  required="true" style=" font-size: 1.1rem;" formControlName="Expiry" placeholder="Card expiry date:">
+                </ion-datetime>
+              </ion-item>
+              <br>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Message (optional): </ion-label>
+          <ion-input type="text" formControlName="Message" style=" font-size: 1.1rem;" placeholder="Your message">
+          </ion-input>
+        </ion-item>
+        <br>
+
+        <div style="text-align: center; margin: auto; display: block;">
+          <ion-button fill="solid" shape="round" style=" font-weight: bold; font-size: 1.1rem;" (click)="add()">Donate
+          </ion-button>
+        </div>
+      </ion-card>
+    </form>
+
+    <br>
+  </div>
+
+</ion-content>
