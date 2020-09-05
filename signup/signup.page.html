@@ -1,0 +1,98 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+  <ion-img src="assets/giverslogo.png"></ion-img>
+
+  <form [formGroup]="signupForm" (submit)="signup()" novalidate style="padding-left: 2rem; padding-right: 2rem;">
+    <!--email-->
+    <ion-item>
+      <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Email: <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input formControlName="email" type="email" required="true" placeholder="Your email address"
+        [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty">
+      </ion-input>
+    </ion-item>
+    <ion-item class="error-message" color="danger"
+      *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
+      <p>Please enter a valid email.</p>
+    </ion-item>
+
+    <!--password-->
+    <ion-item>
+      <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Password: <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input formControlName="password" [type]="isTextFieldType ? 'text' : 'password'" required="true" placeholder="Your password"
+        [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty">
+      </ion-input>
+      <ion-icon button item-right (click)="togglePasswordFieldType()" [name]="isTextFieldType ? 'eye-off' : 'eye'"></ion-icon>
+    </ion-item>
+    <ion-item class="error-message" color="danger"
+      *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
+      <p>Your password needs more than 6 characters.</p>
+    </ion-item>
+
+    <!--Confirm password-->
+    <ion-item>
+      <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Confirm Password: <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input formControlName="password" [type]="isTextFieldType2 ? 'text' : 'password'" required="true" placeholder="Confirm password"
+        [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty">
+      </ion-input>
+      <ion-icon button item-right (click)="togglePasswordFieldType2()" [name]="isTextFieldType2 ? 'eye-off' : 'eye'"></ion-icon>
+    </ion-item>
+    <ion-item class="error-message" color="danger"
+      *ngIf="!signupForm.controls.password.valid != signupForm.controls.cpassword.valid">
+      <p>Password need to match.</p>
+    </ion-item>
+
+    <!--fullname-->
+    <ion-item>
+      <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Full Name: <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input formControlName="fullname" type="text" required="true" placeholder="Your full name"
+        [class.invalid]="!signupForm.controls.fullname.valid && signupForm.controls.fullname.dirty">
+      </ion-input>
+    </ion-item>
+    <ion-item class="error-message" color="danger"
+      *ngIf="!signupForm.controls.fullname.valid  && signupForm.controls.fullname.dirty">
+      <p>Full name cannot be empty</p>
+    </ion-item>
+
+    <!--birthday-->
+    <ion-item>
+      <ion-label style="font-weight: bold; font-size: 1.1rem;">Birthday: <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-datetime displayFormat="DD-MMM-YYYY" pickerFormat="DD-MMM-YYYY" min="1910-01-01" max="2010-12-31"
+        formControlName="birthday" required="true" placeholder="Select Date"
+        [class.invalid]="!signupForm.controls.birthday.valid && signupForm.controls.birthday.dirty">
+      </ion-datetime>
+    </ion-item>
+    <ion-item class="error-message" color="danger"
+      *ngIf="!signupForm.controls.birthday.valid  && signupForm.controls.birthday.dirty">
+      <p>Birth date cannot be empty.</p>
+    </ion-item>
+
+    <!--contact-->
+    <ion-item>
+      <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Contact: <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input formControlName="contact" type="text" required="true" placeholder="Your contact no."
+        [class.invalid]="!signupForm.controls.contact.valid && signupForm.controls.contact.dirty">
+      </ion-input>
+    </ion-item>
+    <ion-item class="error-message" color="danger"
+      *ngIf="!signupForm.controls.contact.valid  && signupForm.controls.contact.dirty">
+      <p>Please enter a valid contact.</p>
+    </ion-item>
+    <br>
+    
+    <div style="text-align: center; margin: auto">
+      <ion-button fill="solid" shape="round" style="text-align: center; font-weight: bold; font-size: 1.1rem;"(click)="signup()">Sign Up</ion-button>
+    </div>
+
+  </form>
+
+  <p [routerLink]="['/login']" style="text-align: center; color: #0FD4F0;"><u>I Have An Account</u></p>
+
+</ion-content>
