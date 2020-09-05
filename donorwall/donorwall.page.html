@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" [routerLink]="['/donorwall']">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title style="font-weight: bold;"> Donor Wall</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="ion-text-center" style="padding: 2rem; ">
+
+    <ion-card>
+      <ion-card-content>
+        <ion-text style="font-size: 1.25rem; color: black;">Write a message to fellow donors or to the charities/organisation</ion-text>
+        <br>
+        <br>
+        <ion-text color="danger" style="font-size: 1rem;">*Your full name and message will be public*</ion-text>
+      </ion-card-content>
+    </ion-card>
+    <br>
+    <br>
+
+    <form [formGroup]="myForm" (submit)="add()" novalidate>
+      <ion-item>
+        <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Full Name: </ion-label>
+        <ion-input type="text" disabled="true" required="true" formControlName="fullname" style=" font-size: 1.25rem;" value="{{users.fullname}}">
+        </ion-input>
+      </ion-item>
+
+      <br>
+
+      <ion-item>
+        <ion-label position="floating" style="font-weight: bold; font-size: 1.25rem;">Message: </ion-label>
+        <ion-input type="text" required="true" formControlName="message" style=" font-size: 1.25rem;" placeholder="Your message"></ion-input>
+      </ion-item>
+      <br>
+
+      <div style="text-align: center; margin: auto; display: block;">
+        <ion-button fill="solid" shape="round"style=" font-weight: bold;" (click)="add()">Submit</ion-button>
+      </div>
+    </form>
+
+    <div style="text-align: center; margin: auto; display: block;">
+      <ion-button fill="solid" shape="round" style="font-weight: bold;" [routerLink]="['/donormessage']">View All Message</ion-button>
+    </div>
+
+  </div>
+
+</ion-content>
